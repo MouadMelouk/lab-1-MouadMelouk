@@ -4,23 +4,26 @@ rectangle and triangle via nested namespace to verify results.*/
 
 #include <iostream>
 
-// Namespace for Rectangle
-namespace Rectangle {
-    double calculateArea(double length, double width) {
-        return length * width;
+namespace Shape {
+    // Namespace for Rectangle
+    namespace Rectangle {
+        double calculateArea(double length, double width) {
+            return length * width;
+        }
     }
-}
 
-// Namespace for Triangle
-namespace Triangle {
-    double calculateArea(double base, double height) {
-        return 0.5 * base * height;
+    // Namespace for Triangle
+    namespace Triangle {
+        double calculateArea(double base, double height) {
+            return 0.5 * base * height;
+        }
     }
+
 }
 
 int main() {
-    double rectangleArea = Rectangle::calculateArea(4.0, 3.0);
-    double triangleArea = Triangle::calculateArea(5.0, 6.0);
+    double rectangleArea = Shape::Rectangle::calculateArea(4.0, 3.0);
+    double triangleArea = Shape::Triangle::calculateArea(5.0, 6.0);
 
     std::cout << "Area of Rectangle: " << rectangleArea << std::endl;
     std::cout << "Area of Triangle: " << triangleArea << std::endl;
