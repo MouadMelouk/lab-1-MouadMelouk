@@ -8,10 +8,13 @@ array to the user to confirm the functionality.*/
 
 int* resizeArray(int* oldArray, int oldSize, int newSize) {
     // (1) Allocate memory for the initial array with the name newArray with the specified newSize
+
+    int *newArray = new int(newSize);
     
    
     for (int i = 0; i < oldSize; ++i) {
          // (2) Copy elements from the old array to the new array
+         newArray[i] = std::move(oldArray[i]);              // I use move for more efficiency if array is large in size
     }
 
     // Initialize new elements in the extended part of the array
@@ -21,6 +24,7 @@ int* resizeArray(int* oldArray, int oldSize, int newSize) {
     }
 
     // (3) Deallocate memory for the old array
+    delete [] oldArray;
 
     return newArray;
 }
@@ -33,6 +37,8 @@ int main() {
     std::cin >> size;
 
     // (4) Allocate memory for the initial array with the size inputted by the user
+
+    array = new int(size);
 
     std::cout << "Enter values for the initial array:" << std::endl;
     for (int i = 0; i < size; ++i) {
@@ -54,6 +60,7 @@ int main() {
         }
 
         // (5) Deallocate memory for the resized array
+        delete [] resizedArray;
     }
 
     return 0;
