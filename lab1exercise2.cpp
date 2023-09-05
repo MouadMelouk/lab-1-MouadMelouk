@@ -11,9 +11,9 @@ Factorial of a number n is defined as:
 // Recursive function to compute factorial
 int factorial(int n) {
     if (n == 0 || n == 1) {
-        // Fill appropriately
+        return n;
     } else {
-        // Fill appropriately with a recursive cae
+        return factorial(n-1) * n;
     }
 }
 
