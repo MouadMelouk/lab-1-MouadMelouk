@@ -8,13 +8,17 @@ factor but itself and 1.*/
 bool isPrime(int n, int divisor) {
     if (n <= 1) {
          // Base case: Numbers less than or equal to 1 are not prime.
+         return false;
     } else if (divisor == 1) {
          // Base case: If divisor reaches 1, the number is prime.
+         return true;
     } else {
         if (n % divisor == 0) {
          // Number is divisible by some integer other than 1 and itself, not prime.
+         return false;
         } else {
         // Check the next divisor using recursion
+        return isPrime(n, divisor - 1);
         }
     }
 }
