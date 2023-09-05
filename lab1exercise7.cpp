@@ -9,8 +9,9 @@ long, char.*/
 
 //  Declares a template function with a single template parameter named T. 
 // T is a placeholder for a data type, and the keyword typename is used here to indicate that T will represent a type.
+template <typename T>
 
-void sort(/* Pass the array of type T */, size_t size) {
+void sort(T arr[]/* Pass the array of type T */, size_t size) {
     for (size_t i = 0; i < size - 1; ++i) {
         for (size_t j = 0; j < size - i - 1; ++j) {
             if (arr[j] > arr[j + 1]) {
@@ -30,13 +31,13 @@ int main() {
 
     // Sort arrays of different data types
     size = sizeof(intArr) / sizeof(intArr[0]);
-    sort(/*Call the function with the integer array*/, size);
+    sort(intArr, size);                                     /*Call the function with the integer array*/
 
     size = sizeof(doubleArr) / sizeof(doubleArr[0]);
-    sort(/*Call the function with the double array*/, size);
+    sort(doubleArr, size);                                  /*Call the function with the double array*/
 
     size = sizeof(charArr) / sizeof(charArr[0]);
-    sort(/*Call the function with the character array*/, size);
+    sort(charArr, size);                                    /*Call the function with the character array*/
 
     // Print sorted arrays
     for (size_t i = 0; i < size; ++i) {
